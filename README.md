@@ -22,10 +22,8 @@ python -m http.server 5500
 
 ## Editing content
 - Copy lives directly in `index.html`.
-- Replace `assets/portrait-placeholder.svg` with a real headshot (`assets/william.jpg`)
-  and update the `<img src>` in the About section.
-- Set the LinkedIn URL in `main.js` (`LINKEDIN_URL`).
-- Update the contact email in the hero/contact `mailto:` links.
+- The headshot is `assets/william.jpg` (used in the hero). Replace that file to swap the photo.
+- LinkedIn and email are plain links in the Contact section of `index.html`.
 
 ## Deploy (GitHub Pages)
 Push to `main`, then enable **Settings → Pages → Deploy from branch → main / root**.

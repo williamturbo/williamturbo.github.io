@@ -10,3 +10,8 @@ desktop.ini
 
 # Node (only if tooling is added later)
 node_modules/
+
+# Local tooling / agent skills (not part of the published site)
+.claude/
+.agents/
+skills-lock.json

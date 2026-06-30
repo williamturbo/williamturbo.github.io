@@ -69,19 +69,4 @@
       observer.observe(el);
     });
   }
-
-  /* ---------- LinkedIn link placeholder ---------- */
-  // Replace "#" below with the real LinkedIn URL when available.
-  var LINKEDIN_URL = ""; // e.g. "https://www.linkedin.com/in/williamnaing"
-  document.querySelectorAll("[data-linkedin]").forEach(function (a) {
-    if (LINKEDIN_URL) {
-      a.setAttribute("href", LINKEDIN_URL);
-      a.setAttribute("target", "_blank");
-      a.setAttribute("rel", "noopener");
-    } else {
-      a.setAttribute("aria-disabled", "true");
-      a.setAttribute("title", "LinkedIn URL coming soon");
-      a.addEventListener("click", function (e) { e.preventDefault(); });
-    }
-  });
 })();
