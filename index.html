@@ -3,31 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>William Naing — Operator &amp; Builder · AI, BD &amp; Operations</title>
-  <meta name="description" content="William Naing — Melbourne-based operator and builder. Business development, operations, and AI automation, run lean. Open to broad-mandate roles in Melbourne and Sydney." />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme") || "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }
+    })();
+  </script>
+  <title>William Naing — Business Development · Founder's Associate · AI Product</title>
+  <meta name="description" content="William Naing — an adaptable business development manager, founder's associate, and AI product builder in Melbourne. I open doors, ship products, and run lean with AI. Open to roles in Melbourne &amp; Sydney." />
+  <meta name="theme-color" content="#f5f1e9" />
 
-  <!-- Open Graph / social preview -->
-  <meta property="og:title" content="William Naing — Operator &amp; Builder" />
-  <meta property="og:description" content="Operator and builder who runs lean with AI. Business development, operations, and automation. Melbourne, open to Sydney." />
+  <meta property="og:title" content="William Naing — BD · Founder's Associate · AI Product" />
+  <meta property="og:description" content="Adaptable business development manager, founder's associate, and AI product builder. I open doors, ship products, and run lean with AI. Melbourne, open to Sydney." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="en_AU" />
+  <meta property="og:url" content="https://williamturbo.github.io/" />
+  <meta property="og:image" content="https://williamturbo.github.io/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-
+  <link rel="preload" href="assets/fonts/spacegrotesk-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <div class="container nav__inner">
-      <a class="nav__brand" href="#top" aria-label="William Naing — home">
-        William&nbsp;Naing<span class="nav__dot">.</span>
-      </a>
+      <a class="nav__brand" href="#top" aria-label="William Naing — home">William&nbsp;Naing<span>.</span></a>
 
       <nav class="nav__links" aria-label="Primary">
         <a href="#capabilities">What I do</a>
@@ -37,11 +47,16 @@
         <a href="#contact" class="nav__cta">Get in touch</a>
       </nav>
 
-      <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav__actions">
+        <button class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="true" title="Toggle light / dark">
+          <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+          <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.2 4.2l1.5 1.5M18.3 18.3l1.5 1.5M2 12h2M20 12h2M4.2 19.8l1.5-1.5M18.3 5.7l1.5-1.5"/></svg>
+        </button>
+        <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-
     <div class="nav__mobile" id="mobileMenu" hidden>
       <a href="#capabilities">What I do</a>
       <a href="#work">Work</a>
@@ -54,44 +69,52 @@
   <main>
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <p class="hero__eyebrow reveal">Operator &amp; Builder · Melbourne, open to Sydney</p>
-          <h1 class="hero__title reveal">
-            I run lean and ship fast —
-            <span class="hero__accent">with AI doing the heavy lifting.</span>
-          </h1>
-          <p class="hero__lead reveal">
-            I'm William Naing, an operator and builder with a background across business
-            development, large-scale events, and operations. I run an e-commerce business where
-            I use AI daily — with judgment on where automation helps and where it doesn't —
-            to operate lean. Resourceful, hands-on, with a genuine bias toward action.
-          </p>
-          <div class="hero__actions reveal">
-            <a class="btn btn--primary" href="#contact">Get in touch</a>
-            <a class="btn btn--ghost" href="#work">See my work</a>
-          </div>
-        </div>
-
-        <div class="hero__portrait reveal">
-          <img src="assets/william.jpg" alt="William Naing" width="920" height="1072" fetchpriority="high" />
-        </div>
+      <div class="badge" role="img" aria-label="Open to work — Melbourne and Sydney, 2026">
+        <svg class="badge__ring" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="badge-curve" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" fill="none" /></defs>
+          <text><textPath href="#badge-curve" startOffset="0">OPEN TO WORK ✦ MELBOURNE &amp; SYDNEY ✦ 2026 ✦ </textPath></text>
+        </svg>
+        <span class="badge__dot" aria-hidden="true"></span>
       </div>
 
       <div class="container">
+        <p class="label hero__eyebrow reveal">Business Development · Founder's Associate · AI Product</p>
+        <h1 class="hero__title reveal">I open doors, ship products,<span class="accent">and run lean with AI.</span></h1>
+
+        <div class="hero__grid">
+          <div class="reveal">
+            <p class="hero__lead">
+              I'm William Naing — a business development manager, founder's associate, and AI
+              product builder. I've owned sponsor and partner accounts, delivered events for up to
+              10,000 people, founded and run my own e-commerce business, and built the AI systems I
+              use to operate lean. I adapt fast, wear many hats, and work out what a small team
+              actually needs.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--solid" href="#contact">Get in touch <span class="ico" aria-hidden="true">→</span></a>
+              <a class="btn btn--line" href="#work">See my work</a>
+            </div>
+          </div>
+
+          <figure class="hero__portrait reveal">
+            <img src="assets/william.jpg" alt="William Naing" width="920" height="1072" fetchpriority="high" />
+            <figcaption><span>William Naing</span><span>Melbourne &amp; Sydney</span></figcaption>
+          </figure>
+        </div>
+
         <dl class="hero__stats reveal">
-          <div><dt>10k</dt><dd>largest event audience delivered</dd></div>
-          <div><dt>40–120</dt><dd>staff &amp; volunteers coordinated</dd></div>
-          <div><dt>Daily</dt><dd>AI tools running the business</dd></div>
+          <div class="stat"><dt data-count="10" data-suffix="k">10k</dt><dd>largest event audience delivered</dd></div>
+          <div class="stat"><dt data-count="120">120</dt><dd>people coordinated at peak</dd></div>
+          <div class="stat"><dt>Daily</dt><dd>AI in the day-to-day</dd></div>
         </dl>
       </div>
     </section>
 
-    <!-- ============ TOOLS MARQUEE ============ -->
+    <!-- ============ MARQUEE ============ -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Claude Code</span><span class="dot">/</span><span>Abacus AI</span><span class="dot">/</span><span>MCP &amp; APIs</span><span class="dot">/</span><span>n8n</span><span class="dot">/</span><span>No-code Automation</span><span class="dot">/</span><span>Shopify</span><span class="dot">/</span><span>Meta Ads</span><span class="dot">/</span><span>Market Research</span><span class="dot">/</span><span>Business Development</span><span class="dot">/</span>
-        <span>Claude Code</span><span class="dot">/</span><span>Abacus AI</span><span class="dot">/</span><span>MCP &amp; APIs</span><span class="dot">/</span><span>n8n</span><span class="dot">/</span><span>No-code Automation</span><span class="dot">/</span><span>Shopify</span><span class="dot">/</span><span>Meta Ads</span><span class="dot">/</span><span>Market Research</span><span class="dot">/</span><span>Business Development</span><span class="dot">/</span>
+        <span>Business Development</span><span class="dot">/</span><span>Partner &amp; Sponsor Accounts</span><span class="dot">/</span><span>Market Research</span><span class="dot">/</span><span>Events at Scale</span><span class="dot">/</span><span>AI Product</span><span class="dot">/</span><span>MCP &amp; APIs</span><span class="dot">/</span><span>n8n</span><span class="dot">/</span><span>Shopify</span><span class="dot">/</span><span>Meta Ads</span><span class="dot">/</span>
+        <span>Business Development</span><span class="dot">/</span><span>Partner &amp; Sponsor Accounts</span><span class="dot">/</span><span>Market Research</span><span class="dot">/</span><span>Events at Scale</span><span class="dot">/</span><span>AI Product</span><span class="dot">/</span><span>MCP &amp; APIs</span><span class="dot">/</span><span>n8n</span><span class="dot">/</span><span>Shopify</span><span class="dot">/</span><span>Meta Ads</span><span class="dot">/</span>
       </div>
     </div>
 
@@ -99,140 +122,174 @@
     <section class="section" id="capabilities">
       <div class="container">
         <header class="section__head reveal">
-          <p class="section__eyebrow">What I do</p>
-          <h2 class="section__title">A broad mandate, across the whole business.</h2>
+          <p class="label">What I do</p>
+          <h2 class="section__title">Three roles in one adaptable hire.</h2>
         </header>
 
-        <div class="cards">
-          <article class="card reveal">
-            <span class="card__num">01</span>
-            <h3>AI &amp; Automation</h3>
-            <p>I use AI daily with judgment on where it adds value and where human input
-              wins. I build the integrations and automations that cut manual overhead.</p>
-            <ul class="card__list">
-              <li>AI tool proficiency &amp; judgment</li>
-              <li>MCP &amp; API integrations</li>
-              <li>No-code / low-code automation (n8n)</li>
-            </ul>
-          </article>
+        <ol class="caps">
+          <li class="caps__item reveal">
+            <div class="caps__num">01</div>
+            <div class="caps__body">
+              <h3>Business Development</h3>
+              <p>I open doors and build the relationships that move revenue. I've owned sponsor and
+                partner accounts end to end, run the market and competitor research behind expansion
+                decisions, and delivered events from 300 to 10,000 people.</p>
+              <ul class="caps__tags">
+                <li>Partner &amp; sponsor accounts</li>
+                <li>Market &amp; competitor research</li>
+                <li>Events &amp; partnerships</li>
+              </ul>
+            </div>
+          </li>
+          <li class="caps__item reveal">
+            <div class="caps__num">02</div>
+            <div class="caps__body">
+              <h3>AI Product</h3>
+              <p>I build AI tools with a product manager's judgment — what to automate, what to keep
+                human, what's worth shipping. I run a multi-agent system every day and built a Meta
+                Ads MCP connector that manages campaigns in plain English.</p>
+              <ul class="caps__tags">
+                <li>AI product &amp; tooling</li>
+                <li>MCP &amp; API integrations</li>
+                <li>Automation (n8n / no-code)</li>
+              </ul>
+            </div>
+          </li>
+          <li class="caps__item reveal">
+            <div class="caps__num">03</div>
+            <div class="caps__body">
+              <h3>Founder's-Associate Operations</h3>
+              <p>The adaptable generalist a small team needs. I take ambiguous problems, work out
+                the plan, and get it shipped across BD, product, and ops — without waiting to be
+                told how.</p>
+              <ul class="caps__tags">
+                <li>Cross-functional operations</li>
+                <li>Project coordination</li>
+                <li>Briefings &amp; reporting</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-          <article class="card reveal">
-            <span class="card__num">02</span>
-            <h3>Business Development</h3>
-            <p>A BD and events background — owning partner and sponsor relationships,
-              researching markets, and turning that into growth.</p>
-            <ul class="card__list">
-              <li>Partnerships &amp; account ownership</li>
-              <li>Market &amp; strategic research</li>
-              <li>Go-to-market &amp; positioning</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <span class="card__num">03</span>
-            <h3>Operations &amp; Strategy</h3>
-            <p>Keeping the business running and the thinking sharp — operations,
-              coordination, and executive-ready briefings.</p>
-            <ul class="card__list">
-              <li>Operational management</li>
-              <li>Project coordination</li>
-              <li>Briefing &amp; report writing</li>
-            </ul>
-          </article>
-        </div>
+    <!-- ============ TOOLBOX / STACK ============ -->
+    <section class="section section--alt" id="stack">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="label">Toolbox</p>
+          <h2 class="section__title">The stack I build with.</h2>
+        </header>
+        <ul class="stack reveal">
+          <li class="stack__item"><img src="assets/icons/anthropic.svg" alt="" width="22" height="22" /><span>Claude</span></li>
+          <li class="stack__item"><img src="assets/icons/hermes.svg" alt="" width="22" height="22" /><span>Hermes Agent</span></li>
+          <li class="stack__item"><img src="assets/icons/abacusai.svg" alt="" width="22" height="22" /><span>Abacus AI</span></li>
+          <li class="stack__item"><img src="assets/icons/openrouter.svg" alt="" width="22" height="22" /><span>OpenRouter</span></li>
+          <li class="stack__item"><img src="assets/icons/n8n.svg" alt="" width="22" height="22" /><span>n8n</span></li>
+          <li class="stack__item"><img src="assets/icons/vscode.svg" alt="" width="22" height="22" /><span>VS Code</span></li>
+          <li class="stack__item"><img src="assets/icons/github.svg" alt="" width="22" height="22" /><span>GitHub</span></li>
+          <li class="stack__item"><img src="assets/icons/shopify.svg" alt="" width="22" height="22" /><span>Shopify</span></li>
+          <li class="stack__item"><img src="assets/icons/meta.svg" alt="" width="22" height="22" /><span>Meta Ads</span></li>
+          <li class="stack__item"><img src="assets/icons/google.svg" alt="" width="22" height="22" /><span>Google Workspace</span></li>
+          <li class="stack__item"><img src="assets/icons/msoffice.svg" alt="" width="22" height="22" /><span>Microsoft Office</span></li>
+          <li class="stack__item"><img src="assets/icons/canva.svg" alt="" width="22" height="22" /><span>Canva</span></li>
+        </ul>
       </div>
     </section>
 
     <!-- ============ SELECTED WORK ============ -->
-    <section class="section section--alt" id="work">
+    <section class="section" id="work">
       <div class="container">
         <header class="section__head reveal">
-          <p class="section__eyebrow">Selected work</p>
-          <h2 class="section__title">Things I've built and shipped.</h2>
+          <p class="label">Selected work</p>
+          <h2 class="section__title">Problems I've taken on, and how they landed.</h2>
         </header>
 
         <div class="work">
           <article class="work__item reveal">
-            <div class="work__meta">
-              <span class="tag">Founder</span>
-              <span class="tag">Ecommerce</span>
-              <span class="tag">AI</span>
+            <div class="work__top">
+              <span class="work__idx">01 / 03</span>
+              <div class="work__tags"><span class="tag">Founder</span><span class="tag">Product</span><span class="tag">Growth</span></div>
             </div>
-            <h3>Life Essis — Shopify home-products store</h3>
-            <p>Founded and operate an independent Shopify store end to end — branding, product
-              setup, and operations. I use AI to automate listings, SEO, content and marketing,
-              and built a Meta Ads MCP connector that drafts ad copy, pulls campaign metrics,
-              and optimises spend from one place.</p>
+            <h3>Life Essis — an e-commerce business I own end to end</h3>
+            <div class="case">
+              <div class="case__row"><span class="case__k">Problem</span><p>Running a store solo means every hour on listings, ads, and admin is an hour not spent growing it.</p></div>
+              <div class="case__row"><span class="case__k">What I did</span><p>Founded and operate it end to end, and built AI into the workflow — a Meta Ads MCP connector drafts copy, pulls metrics, and optimises spend from one place.</p></div>
+              <div class="case__row"><span class="case__k">Outcome</span><p>The business runs lean; AI handles the repetitive work so I can focus on product and growth.</p></div>
+            </div>
           </article>
 
           <article class="work__item reveal">
-            <div class="work__meta">
-              <span class="tag">AI</span>
-              <span class="tag">Automation</span>
+            <div class="work__top">
+              <span class="work__idx">02 / 03</span>
+              <div class="work__tags"><span class="tag">AI Product</span><span class="tag">Automation</span></div>
             </div>
-            <h3>Multi-agent infrastructure — my daily second brain</h3>
-            <p>A multi-agent system I built and run every day. It handles research, drafting,
-              and repetitive digital work, switching across several AI models to stay reliable
-              and cross-referencing responses for accuracy. It has sharply cut my time on
-              routine tasks and lets me operate solo at a higher output.</p>
+            <h3>Multi-agent infrastructure — an AI product I built for myself</h3>
+            <div class="case">
+              <div class="case__row"><span class="case__k">Problem</span><p>Operating solo, routine research, drafting, and admin kept eating the hours that mattered.</p></div>
+              <div class="case__row"><span class="case__k">What I did</span><p>Built a multi-agent system across several AI models that handles those tasks and cross-checks its own output for reliability.</p></div>
+              <div class="case__row"><span class="case__k">Outcome</span><p>Sharply cut my routine workload — I operate solo at a higher, more reliable output.</p></div>
+            </div>
           </article>
 
           <article class="work__item reveal">
-            <div class="work__meta">
-              <span class="tag">Strategy</span>
-              <span class="tag">Research</span>
+            <div class="work__top">
+              <span class="work__idx">03 / 03</span>
+              <div class="work__tags"><span class="tag">Business Development</span><span class="tag">Strategy</span></div>
             </div>
             <h3>5-year growth plan, Jeep Australia — RMIT consulting project</h3>
-            <p>Conducted internal and external market analysis and synthesised it into a
-              five-year strategic growth plan with executive-ready recommendations, delivered
-              under client and academic deadlines.</p>
+            <div class="case">
+              <div class="case__row"><span class="case__k">Problem</span><p>Jeep needed a defensible growth path in a competitive Australian market.</p></div>
+              <div class="case__row"><span class="case__k">What I did</span><p>Ran internal and external market analysis and synthesised it into a five-year strategic growth plan.</p></div>
+              <div class="case__row"><span class="case__k">Outcome</span><p>Delivered executive-ready recommendations under real client and academic deadlines.</p></div>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ============ ABOUT ============ -->
-    <section class="section" id="about">
-      <div class="container">
-        <div class="about__solo reveal">
-          <p class="section__eyebrow">About</p>
-          <h2 class="section__title">Resourceful, reliable, and hands-on.</h2>
-          <p>
-            My background runs across business development, large-scale event delivery, and
-            operations — from coordinating teams of up to 120 people and events of 10,000
-            attendees in Southeast Asia, to running my own e-commerce business in Melbourne today.
-          </p>
-          <p>
-            I pick things up fast and work across a broad mandate without needing handholding.
-            I spent nearly three years as an early-childhood educator — a role that runs entirely
-            on patience, consistency and follow-through — and I bring that same reliability to
-            everything I take on. I'm looking for a role with a broad mandate and a small team,
-            where being resourceful and hands-on matters more than staying in one lane.
-          </p>
-          <ul class="facts">
-            <li><span>Based in</span> Melbourne, VIC — open to Sydney</li>
-            <li><span>Education</span> Bachelor of Business Management, RMIT</li>
-            <li><span>Languages</span> English &amp; Burmese (bilingual)</li>
-            <li><span>Focus</span> AI &amp; automation · BD · operations</li>
-          </ul>
-        </div>
+    <section class="section section--alt" id="about">
+      <div class="container about reveal">
+        <header class="section__head" style="margin-bottom: var(--space-6);">
+          <p class="label">About</p>
+          <h2 class="section__title">Adaptable by default.</h2>
+        </header>
+        <p>
+          My background spans business development, large-scale events, and operations — from
+          owning sponsor accounts and delivering events for thousands in Southeast Asia, to founding
+          and running my own e-commerce business in Melbourne today.
+        </p>
+        <p>
+          What ties it together is adaptability. I pick things up fast, work across a broad mandate,
+          and don't need handholding to figure out what a role actually requires. I spent nearly
+          three years as an early-childhood educator — a job that runs entirely on patience and
+          follow-through — and I bring that same reliability to business development, product, and
+          operations. I'm looking for a role with a broad mandate and a small team, where being
+          resourceful across the business matters more than staying in one lane.
+        </p>
+        <ul class="facts">
+          <li><span>Based in</span> Melbourne, VIC — open to Sydney</li>
+          <li><span>Education</span> Bachelor of Business Management, RMIT</li>
+          <li><span>Languages</span> English &amp; Burmese (bilingual)</li>
+          <li><span>Focus</span> BD · Founder's associate · AI product</li>
+        </ul>
       </div>
     </section>
 
     <!-- ============ EXPERIENCE ============ -->
-    <section class="section section--alt" id="experience">
+    <section class="section" id="experience">
       <div class="container">
         <header class="section__head reveal">
-          <p class="section__eyebrow">Experience</p>
+          <p class="label">Experience</p>
           <h2 class="section__title">Where I've worked.</h2>
         </header>
-
         <ol class="timeline">
           <li class="timeline__item reveal">
             <div class="timeline__when">2026 — Present</div>
             <div class="timeline__what">
               <h3>Founder &amp; Operator — Life Essis</h3>
-              <p>Melbourne, VIC. Running an independent Shopify business lean with AI and automation.</p>
+              <p>Melbourne, VIC. Brand, product, and growth for a Shopify business, run lean with AI and automation.</p>
             </div>
           </li>
           <li class="timeline__item reveal">
@@ -275,10 +332,10 @@
     </section>
 
     <!-- ============ BACKGROUND: EDUCATION + SKILLS ============ -->
-    <section class="section" id="background">
+    <section class="section section--alt" id="background">
       <div class="container duo">
         <div class="reveal">
-          <p class="section__eyebrow">Education</p>
+          <p class="label">Education</p>
           <h2 class="section__title">Qualifications.</h2>
           <ul class="edu">
             <li class="edu__item">
@@ -297,61 +354,58 @@
         </div>
 
         <div class="reveal">
-          <p class="section__eyebrow">Skills &amp; tools</p>
-          <h2 class="section__title">What I work with.</h2>
-
+          <p class="label">Skills</p>
+          <h2 class="section__title">Beyond the stack.</h2>
           <div class="skillgroup">
-            <h4>AI &amp; Automation</h4>
+            <h4>Business &amp; BD</h4>
             <ul class="chips">
-              <li class="chip">Claude Code</li>
-              <li class="chip">Abacus AI</li>
-              <li class="chip">MCP &amp; API integrations</li>
-              <li class="chip">n8n</li>
-              <li class="chip">No-code / low-code</li>
-              <li class="chip">VS Code</li>
-              <li class="chip">GitHub</li>
-            </ul>
-          </div>
-
-          <div class="skillgroup">
-            <h4>Business</h4>
-            <ul class="chips">
-              <li class="chip">Shopify</li>
-              <li class="chip">Google Workspace</li>
-              <li class="chip">Microsoft Office</li>
-              <li class="chip">Canva</li>
+              <li class="chip">Partner &amp; sponsor accounts</li>
+              <li class="chip">Market &amp; competitor research</li>
+              <li class="chip">Events &amp; partnerships</li>
               <li class="chip">CRM systems</li>
             </ul>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section contact" id="contact">
-      <div class="container contact__inner reveal">
-        <p class="section__eyebrow">Contact</p>
-        <h2 class="contact__title">Looking for someone resourceful and hands-on?</h2>
-        <p class="contact__lead">
-          I'm open to broad-mandate roles in Melbourne and Sydney — and happy to talk
-          automation, BD, or operations. The fastest way to reach me is email.
-        </p>
-        <div class="contact__actions">
-          <a class="btn btn--primary" href="mailto:williamliu.yannaing@gmail.com">Email me</a>
-          <a class="btn btn--ghost" href="https://www.linkedin.com/in/william-naing-77b82a178" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <div class="skillgroup">
+            <h4>AI &amp; Product</h4>
+            <ul class="chips">
+              <li class="chip">MCP &amp; API integrations</li>
+              <li class="chip">Prompt &amp; workflow design</li>
+              <li class="chip">No-code / low-code</li>
+              <li class="chip">Rapid prototyping</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="container reveal">
+      <p class="label">Contact</p>
+      <h2 class="contact__title">Hiring a BD manager, founder's associate, or AI PM?</h2>
+      <p class="contact__lead">
+        I'm open to business development, founder's-associate, and AI product roles across
+        Melbourne and Sydney. If you need someone who adapts fast and gets things shipped, let's
+        talk — email is the fastest way to reach me.
+      </p>
+      <p class="contact__email-wrap"><a class="contact__email" href="mailto:williamliu.yannaing@gmail.com">williamliu.yannaing@gmail.com <span class="ico" aria-hidden="true">→</span></a></p>
+      <div class="contact__links">
+        <a href="https://www.linkedin.com/in/william-naing-77b82a178" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container footer__inner">
       <span>© <span id="year">2026</span> William Naing</span>
-      <a href="#top">Back to top ↑</a>
+      <span>BD · Founder's Associate · AI Product · Melbourne</span>
     </div>
   </footer>
 
+  <script src="assets/vendor/lenis.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,95 @@
+/* Hallmark · tokens · theme: warm-editorial + cool ink-blue (custom)
+ * paper oklch(96.5% .012 88) · accent oklch(52% .15 254) · Space Grotesk + JetBrains Mono + Inter
+ */
+:root {
+  /* ---- Paper (warm cream) ---- */
+  --color-paper:   oklch(96.5% 0.012 88);
+  --color-paper-2: oklch(93.5% 0.014 86);
+  --color-card:    oklch(98.5% 0.008 92);
+
+  /* ---- Ink (warm near-black) ---- */
+  --color-ink:      oklch(24% 0.012 70);
+  --color-ink-soft: oklch(44% 0.012 68);
+  --color-muted:    oklch(57% 0.010 72);
+
+  /* ---- Accent (cool ink-blue) — used < 5% ---- */
+  --color-accent:     oklch(52% 0.150 254);
+  --color-accent-ink: oklch(44% 0.140 256);
+  --color-on-accent:  oklch(98% 0.010 260);
+
+  /* ---- Dark feature band (contact/footer) ---- */
+  --color-night:          oklch(22% 0.014 68);
+  --color-on-night:       oklch(94% 0.012 88);
+  --color-on-night-muted: oklch(72% 0.012 80);
+  --color-focus-dark:     oklch(70% 0.140 254);
+  --color-line-dark:      oklch(94% 0.012 88 / 0.12);
+
+  /* ---- Hairlines ---- */
+  --color-line:        oklch(24% 0.012 70 / 0.14);
+  --color-line-strong: oklch(24% 0.012 70 / 0.30);
+
+  /* ---- Type families ---- */
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* ---- Type scale ---- */
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.15rem;
+  --text-xl:   1.4rem;
+  --text-2xl:  1.9rem;
+  --text-3xl:  clamp(2rem, 4vw, 2.7rem);
+  --text-4xl:  clamp(2.4rem, 5.5vw, 3.6rem);
+  --text-display-s: clamp(2.6rem, 7vw, 4.6rem);
+  --text-display:   clamp(3.1rem, 10.5vw, 8.5rem);
+
+  /* ---- Spacing (4pt) ---- */
+  --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem;  --space-8: 2rem;    --space-10: 2.5rem;
+  --space-12: 3rem;   --space-16: 4rem;   --space-20: 5rem;   --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ---- Motion ---- */
+  --ease-out:    cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in:     cubic-bezier(0.5, 0, 0.75, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-1: 0.18s; --dur-2: 0.32s; --dur-3: 0.6s;
+
+  /* ---- Radius / rules ---- */
+  --radius: 4px;
+  --radius-pill: 999px;
+
+  /* ---- Layout ---- */
+  --container: 1200px;
+  --pad: clamp(1.25rem, 4vw, 2.75rem);
+}
+
+/* ============================================================
+   Dark theme — charcoal canvas + indigo accent
+   ============================================================ */
+:root[data-theme="dark"] {
+  --color-paper:   oklch(19% 0.010 265);
+  --color-paper-2: oklch(23% 0.012 265);
+  --color-card:    oklch(26% 0.014 265);
+
+  --color-ink:      oklch(95% 0.006 250);
+  --color-ink-soft: oklch(75% 0.010 258);
+  --color-muted:    oklch(60% 0.012 260);
+
+  --color-accent:     oklch(58% 0.200 273);
+  --color-accent-ink: oklch(72% 0.170 274);
+  --color-on-accent:  oklch(98% 0.010 260);
+
+  --color-night:          oklch(15% 0.012 265);
+  --color-on-night:       oklch(95% 0.006 250);
+  --color-on-night-muted: oklch(72% 0.010 258);
+
+  --color-line:        oklch(95% 0.006 250 / 0.12);
+  --color-line-strong: oklch(95% 0.006 250 / 0.22);
+  --color-focus-dark:  oklch(72% 0.170 274);
+  --color-line-dark:   oklch(95% 0.006 250 / 0.12);
+
+  --color-hero-glow:   oklch(30% 0.060 276);
+}
