@@ -9,6 +9,14 @@
     "(prefers-reduced-motion: reduce)"
   ).matches;
 
+  /* When GSAP is loaded (and motion is allowed), motion.js owns all
+     .reveal choreography — the IntersectionObserver fallback below
+     must not double-animate the same elements. */
+  var gsapMotion =
+    !prefersReducedMotion &&
+    typeof window.gsap !== "undefined" &&
+    typeof window.ScrollTrigger !== "undefined";
+
   /* ---------- Footer year ---------- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -63,7 +71,9 @@
 
   /* ---------- Reveal on scroll ---------- */
   var revealEls = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+  if (gsapMotion) {
+    /* handled by motion.js */
+  } else if (prefersReducedMotion || !("IntersectionObserver" in window)) {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   } else {
     var observer = new IntersectionObserver(
@@ -121,6 +131,7 @@
   /* ---------- Smooth scroll (Lenis) ---------- */
   if (!prefersReducedMotion && typeof Lenis !== "undefined") {
     var lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+    window.__lenis = lenis;
     function raf(t) { lenis.raf(t); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
     document.querySelectorAll('a[href^="#"]').forEach(function (a) {

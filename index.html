@@ -29,9 +29,11 @@
 
   <link rel="preload" href="assets/fonts/spacegrotesk-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="tokens.css" />
   <link rel="stylesheet" href="styles.css" />
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body>
   <!-- ============ NAV ============ -->
@@ -77,9 +79,10 @@
         <span class="badge__dot" aria-hidden="true"></span>
       </div>
 
-      <div class="container">
-        <p class="label hero__eyebrow reveal">Business Development · Founder's Associate · AI Product</p>
-        <h1 class="hero__title reveal">I open doors, ship products,<span class="accent">and run lean with AI.</span></h1>
+      <canvas class="hero__net" id="constellation" aria-hidden="true"></canvas>
+      <div class="container hero__content">
+        <p class="label hero__eyebrow reveal" data-scramble>Business Development · Founder's Associate · AI Product</p>
+        <h1 class="hero__title reveal" data-hero-title>I open <em class="serif">doors,</em> ship <em class="serif">products,</em> and run lean with&nbsp;<span class="accent">AI.</span></h1>
 
         <div class="hero__grid">
           <div class="reveal">
@@ -122,13 +125,14 @@
     <section class="section" id="capabilities">
       <div class="container">
         <header class="section__head reveal">
-          <p class="label">What I do</p>
-          <h2 class="section__title">Three roles in one adaptable hire.</h2>
+          <p class="label" data-scramble>What I do</p>
+          <h2 class="section__title" data-split>Three roles in one <em class="serif">adaptable</em> hire.</h2>
         </header>
 
         <ol class="caps">
           <li class="caps__item reveal">
             <div class="caps__num">01</div>
+            <span class="caps__ghost" aria-hidden="true">01</span>
             <div class="caps__body">
               <h3>Business Development</h3>
               <p>I open doors and build the relationships that move revenue. I've owned sponsor and
@@ -143,6 +147,7 @@
           </li>
           <li class="caps__item reveal">
             <div class="caps__num">02</div>
+            <span class="caps__ghost" aria-hidden="true">02</span>
             <div class="caps__body">
               <h3>AI Product</h3>
               <p>I build AI tools with a product manager's judgment — what to automate, what to keep
@@ -157,6 +162,7 @@
           </li>
           <li class="caps__item reveal">
             <div class="caps__num">03</div>
+            <span class="caps__ghost" aria-hidden="true">03</span>
             <div class="caps__body">
               <h3>Founder's-Associate Operations</h3>
               <p>The adaptable generalist a small team needs. I take ambiguous problems, work out
@@ -177,8 +183,8 @@
     <section class="section section--alt" id="stack">
       <div class="container">
         <header class="section__head reveal">
-          <p class="label">Toolbox</p>
-          <h2 class="section__title">The stack I build with.</h2>
+          <p class="label" data-scramble>Toolbox</p>
+          <h2 class="section__title" data-split>The stack I <em class="serif">build</em> with.</h2>
         </header>
         <ul class="stack reveal">
           <li class="stack__item"><img src="assets/icons/anthropic.svg" alt="" width="22" height="22" /><span>Claude</span></li>
@@ -201,8 +207,8 @@
     <section class="section" id="work">
       <div class="container">
         <header class="section__head reveal">
-          <p class="label">Selected work</p>
-          <h2 class="section__title">Problems I've taken on, and how they landed.</h2>
+          <p class="label" data-scramble>Selected work</p>
+          <h2 class="section__title" data-split>Problems I've taken on, and how they <em class="serif">landed.</em></h2>
         </header>
 
         <div class="work">
@@ -252,8 +258,8 @@
     <section class="section section--alt" id="about">
       <div class="container about reveal">
         <header class="section__head" style="margin-bottom: var(--space-6);">
-          <p class="label">About</p>
-          <h2 class="section__title">Adaptable by default.</h2>
+          <p class="label" data-scramble>About</p>
+          <h2 class="section__title" data-split><em class="serif">Adaptable</em> by default.</h2>
         </header>
         <p>
           My background spans business development, large-scale events, and operations — from
@@ -281,8 +287,8 @@
     <section class="section" id="experience">
       <div class="container">
         <header class="section__head reveal">
-          <p class="label">Experience</p>
-          <h2 class="section__title">Where I've worked.</h2>
+          <p class="label" data-scramble>Experience</p>
+          <h2 class="section__title" data-split>Where I've <em class="serif">worked.</em></h2>
         </header>
         <ol class="timeline">
           <li class="timeline__item reveal">
@@ -335,8 +341,8 @@
     <section class="section section--alt" id="background">
       <div class="container duo">
         <div class="reveal">
-          <p class="label">Education</p>
-          <h2 class="section__title">Qualifications.</h2>
+          <p class="label" data-scramble>Education</p>
+          <h2 class="section__title" data-split>Qualifications.</h2>
           <ul class="edu">
             <li class="edu__item">
               <h3>Graduate Diploma of Early Childhood Education</h3>
@@ -354,8 +360,8 @@
         </div>
 
         <div class="reveal">
-          <p class="label">Skills</p>
-          <h2 class="section__title">Beyond the stack.</h2>
+          <p class="label" data-scramble>Skills</p>
+          <h2 class="section__title" data-split>Beyond the stack.</h2>
           <div class="skillgroup">
             <h4>Business &amp; BD</h4>
             <ul class="chips">
@@ -382,8 +388,8 @@
   <!-- ============ CONTACT ============ -->
   <section class="contact" id="contact">
     <div class="container reveal">
-      <p class="label">Contact</p>
-      <h2 class="contact__title">Hiring a BD manager, founder's associate, or AI PM?</h2>
+      <p class="label" data-scramble>Contact</p>
+      <h2 class="contact__title" data-split>Hiring a BD manager, founder's associate, or <em class="serif">AI&nbsp;PM?</em></h2>
       <p class="contact__lead">
         I'm open to business development, founder's-associate, and AI product roles across
         Melbourne and Sydney. If you need someone who adapts fast and gets things shipped, let's
@@ -405,7 +411,15 @@
     </div>
   </footer>
 
+  <div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
   <script src="assets/vendor/lenis.min.js"></script>
+  <script src="assets/vendor/gsap.min.js"></script>
+  <script src="assets/vendor/ScrollTrigger.min.js"></script>
+  <script src="assets/vendor/SplitText.min.js"></script>
   <script src="main.js"></script>
+  <script src="motion.js"></script>
 </body>
 </html>

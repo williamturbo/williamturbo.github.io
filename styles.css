@@ -124,19 +124,30 @@ ul, ol { list-style: none; padding: 0; }
 /* ============================================================
    Hero — Stat-Led editorial
    ============================================================ */
-.hero { position: relative; padding: clamp(3rem, 8vw, 6.5rem) 0 var(--space-16); }
+.hero { position: relative; padding: clamp(3rem, 8vw, 6.5rem) 0 var(--space-16); overflow: clip; }
+.hero__net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.hero__content { position: relative; z-index: 1; }
 .hero__eyebrow { margin-bottom: var(--space-6); }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: var(--text-display-s);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
-  max-width: 15ch;
+  font-size: clamp(2.7rem, 7.8vw, 6.2rem);
+  line-height: 1.01;
+  letter-spacing: -0.03em;
+  max-width: 18ch;
   overflow-wrap: anywhere;
   margin-bottom: var(--space-8);
 }
-.hero__title .accent { display: block; color: var(--color-accent-ink); }
+.hero__title .accent { color: var(--color-accent-ink); }
+
+/* Editorial serif italic — the display counterpoint */
+.serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.09em;
+  letter-spacing: 0;
+}
 
 .hero__grid { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: clamp(2rem, 5vw, 4rem); align-items: end; }
 .hero__lead { font-size: var(--text-lg); color: var(--color-ink-soft); max-width: 46ch; }
@@ -269,7 +280,7 @@ ul, ol { list-style: none; padding: 0; }
 .contact__title { font-family: var(--font-display); font-weight: 600; font-size: var(--text-display-s); line-height: 1.02; letter-spacing: -0.025em; margin: var(--space-5) 0 var(--space-6); overflow-wrap: anywhere; }
 .contact__lead { color: var(--color-on-night-muted); font-size: var(--text-lg); max-width: 52ch; }
 .contact__email-wrap { margin-top: var(--space-10); }
-.contact__email { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.3rem, 5.5vw, 1.9rem); letter-spacing: -0.01em; color: var(--color-on-night); overflow-wrap: anywhere; }
+.contact__email { display: inline-block; font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 6vw, 2.5rem); letter-spacing: -0.015em; color: var(--color-on-night); overflow-wrap: anywhere; }
 .contact__email .ico { display: inline-block; color: var(--color-accent); transition: transform var(--dur-1) var(--ease-out); }
 .contact__email:hover .ico { transform: translateX(5px); }
 .contact__links { display: flex; gap: var(--space-6); margin-top: var(--space-8); }
@@ -325,6 +336,103 @@ ul, ol { list-style: none; padding: 0; }
   .facts { grid-template-columns: 1fr; }
   .badge { width: 74px; height: 74px; top: 0.75rem; }
   .hero__eyebrow { padding-right: 84px; }
+}
+
+/* ============================================================
+   Motion layer (activated by motion.js via .has-motion on <html>)
+   ============================================================ */
+
+/* GSAP owns reveals & marquee when active — kill the CSS versions */
+.has-motion .reveal { transition: none; }
+.has-motion .marquee__track { animation: none; }
+.has-motion .badge__ring { animation: none; }
+
+/* Split titles hide until SplitText has carved them into lines */
+.has-motion [data-split],
+.has-motion [data-hero-title] { visibility: hidden; }
+
+/* Ghost numerals behind capabilities */
+.caps__item { position: relative; }
+.caps__body { position: relative; z-index: 1; }
+.caps__ghost {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(6rem, 15vw, 11rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-line-strong);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Self-drawing hairlines (GSAP animates --draw 0 → 1) */
+.has-motion .timeline__item,
+.has-motion .work__item { position: relative; border-bottom-color: transparent; }
+.has-motion .timeline__item::after,
+.has-motion .work__item::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 1px;
+  background: var(--color-line-strong);
+  transform: scaleX(var(--draw, 0));
+  transform-origin: left;
+}
+.has-motion .hero__stats { position: relative; border-top-color: transparent; }
+.has-motion .hero__stats::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: -1px;
+  height: 1px;
+  background: var(--color-line-strong);
+  transform: scaleX(var(--draw, 0));
+  transform-origin: left;
+}
+
+/* Nav hides on scroll down, returns on scroll up */
+.has-motion .nav { transition: transform 0.4s var(--ease-out), border-color var(--dur-2) var(--ease-out); }
+.has-motion .nav.is-hidden { transform: translateY(-100%); }
+
+/* Scroll progress hairline */
+.progress { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 90; pointer-events: none; }
+.progress__bar { display: block; height: 100%; background: var(--color-accent); transform: scaleX(0); transform-origin: left; }
+
+/* Film grain */
+.grain {
+  position: fixed;
+  inset: -100%;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"] .grain { opacity: 0.07; }
+.has-motion .grain { animation: grain-shift 0.9s steps(3) infinite; }
+@keyframes grain-shift {
+  0%   { transform: translate3d(0, 0, 0); }
+  33%  { transform: translate3d(2.5%, -1.5%, 0); }
+  66%  { transform: translate3d(-1.5%, 2.5%, 0); }
+  100% { transform: translate3d(1.5%, 1.5%, 0); }
+}
+
+/* Custom cursor — fine pointers only */
+.cursor { display: none; }
+.has-motion.has-fine-pointer .cursor { display: block; position: fixed; top: 0; left: 0; z-index: 120; pointer-events: none; }
+.has-motion.has-fine-pointer body,
+.has-motion.has-fine-pointer a,
+.has-motion.has-fine-pointer button { cursor: none; }
+.cursor__dot,
+.cursor__ring { position: fixed; top: 0; left: 0; border-radius: 50%; will-change: transform; }
+.cursor__dot { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--color-accent); }
+.cursor__ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid color-mix(in oklab, var(--color-accent) 55%, transparent); }
+
+@media (max-width: 860px) {
+  .caps__ghost { display: none; }
 }
 
 /* ============================================================
